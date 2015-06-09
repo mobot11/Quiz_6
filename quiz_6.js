@@ -17,3 +17,17 @@ app.get("/", function(req,res){
   and that json object is the key name with the value "Dylan"*/
   res.json( { name: "Dylan"};
 })
+
+
+/*line one works as a document.ready function and gets our document ready to run jquery*/
+$(function(){
+  /*line two selects our button element and tells it to run the callback function when clicked*/
+  $('button').on('click', function(){
+    /*line three says when the get request hits the '/' to run the callback function with the data the
+    servers get function has as the parameter*/
+    $.get("/", function(response){
+      /*line four puts the json data our server is giving us and appends it to any p in our html file*/
+      $("p").html(response);
+    })
+  })
+});
